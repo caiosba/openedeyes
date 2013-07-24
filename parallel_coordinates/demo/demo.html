@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>OpenedEyes Demonstration | Parallel Coordinates Chart</title>
+	<script type="text/javascript" src="../../openedeyes/js/openedeyes.js" id="openedeyes"></script>
+	<script type="text/javascript" src="dragdealer.js"></script>
+  <link rel="stylesheet" type="text/css" href="demo.css" />
+</head>
+
+<body>
+  <h2>Parallel Coordinates Chart</h2>
+  <div id="content">
+  </div>
+	<a href="#" onclick="playSlider(1); return false" id="play">Play</a>
+	<div id="slider" class="dragdealer">
+		<div class="handle" id="handle">2006</div>
+	</div>
+  <script type="text/javascript">
+	var chart;
+  var slider;
+	var year = 2006;
+
+	var queryString = window.location.search.replace(/^\?/,'').split('&');
+  var queryParams = {};
+  for (var i=0; i < queryString.length; i++) {
+    var pair = queryString[i].split('=');
+    queryParams[pair[0]] = pair[1];
+	}
+
+  function playSlider(i) {
+		slider.setStep(i);
+    window.setTimeout(function() {
+			if (i <= 6) playSlider(i+1);
+		}, 1500);
+	}
+
+  function createSlider(vis) {
+		slider = new Dragdealer('slider', {
+      steps: 6,
+      snap: true,
+      animationCallback: function(x, y) {
+			  year = 2006 + parseInt(x * 5);
+        vis.updateVis();
+				$('handle').update(year);
+			}
+    });
+  }
+	window.onload = function() {
+	  chart = new parallelCoordinatesChart({
+	    'container' : 'content',
+	  	'size' : [1000,300],
+	  	'position' : [270,50],
+  		'background' : ['#b9a680','#f0e4ca'],
+      'strokeWidth' : 3,
+	  	'lang' : queryParams.lang || 'en',
+	  	'requestPath' : 'http://uni.safernet.org.br:3000/analysis/reports/parallel_coordinates.json',
+			'useDefaultInterface' : true,
+		  'initialState' : { 'A' : {'País':'Estados Unidos',
+																'Tipo de Conteúdo':'Pornografia Infantil'
+																}
+		                   },
+			'bars' : { 'Provedor' : ['Terra','UOL','IG','Globo'],
+				         'Domínio' : ['orkut.com','blogspot.com','youtube.com','uolk.uol.com.br','batepapo.uol.com.br','twitter.com','facebook.com'],
+								 'Resultados' : ['Conteúdo removido pelo provedor','Arquivado','Procedimento instaurado'],
+								 'País' : ['Brasil','Estados Unidos','Ilhas Cayman','Alemanha','Holanda','Rússia'],
+								 'Idioma' : ['Inglês','Português','Espanhol','Francês'],
+								 'Tipo de Conteúdo' : ['Pornografia Infantil','Homofobia','Xenofobia','Racismo','Neo Nazismo'],
+								 'Serviço' : ['Rede de Relacionamento', 'Blog/Foto Blog', 'Hospedagem de Página', 'Chat', 'Streaming de Vídeo', 'Hospedagem de Imagem', 'Hospedagem de Arquivo', 'Website Estático', 'Webmail', 'Microblog']
+			         },
+			'activeBars' : ['País','Tipo de Conteúdo'],
+			'activeLine' : 'A',
+			'autoUpdate' : true,
+		  'addParams' : function() {
+		    return { 'fields' : this.config.activeBars, 'state' : JSON.stringify(this.currentState), 'year' : year }
+		  },
+	    'callback' : function(vis) { createSlider(vis); }
+    });
+	}
+	</script>
+</body>
+</html>

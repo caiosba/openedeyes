@@ -1,0 +1,117 @@
+#choropleth-map {
+  border: 0;
+  overflow: hidden;
+  position: absolute;
+  background: transparent url(../images/loading.png) center center no-repeat;
+}
+
+#choropleth-map-legend,
+#openedeyes-map-legend {
+  display: inline-block;
+	padding: 4px;
+	border: 1px solid #333;
+  background: #fff;
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+}
+
+#choropleth-map-bubble-select {
+  display: inline-block;
+	padding: 4px;
+	border: 1px solid #333;
+  background: #fff;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+
+#choropleth-map-bubble-select h4 {
+  padding: 0;
+  margin: 0;
+}
+
+#choropleth-map-legend li,
+#openedeyes-map-legend li {
+  display: block;
+	margin: 2px;
+}
+
+#choropleth-map-legend span,
+#openedeyes-map-legend span {
+  font-size: 11px;
+	font-family: sans-serif;
+}
+
+#choropleth-map-legend div,
+#openedeyes-map-legend div {
+  display: inline-block;
+	border: 1px solid #333;
+	width: 9px;
+	height: 9px;
+	margin-right: 3px;
+}
+
+#openedeyes-map-balloon {
+  position: absolute;
+  z-index: 4;
+  width: 150px;
+}
+
+#openedeyes-map-balloon p {
+  display: block;
+  background: transparent url(../images/balloon-middle.png) center center repeat-y;
+  padding: 5px 0 5px 20px;
+  width: 130px;
+	font-size: 10px;
+  margin: 0;
+	color: #333;
+}
+
+#openedeyes-map-balloon h3 {
+  display: block;
+  width: 130px;
+	height: 12px;
+	margin: 0;
+	overflow: hidden;
+  padding: 5px 0 0 20px;
+  background: transparent url(../images/balloon-header.png) top center no-repeat;
+  font-size: 12px;
+  color: #000;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+#openedeyes-map-balloon small {
+  display: block;
+  background: transparent url(../images/balloon-footer.png) bottom center no-repeat;
+  width: 150px;
+	height: 17px;
+	margin: 0;
+	overflow: hidden;
+  padding: 0;
+  color: #ccc;
+}
+
+#openedeyes-map-balloon img {
+  display: block;
+	position: absolute;
+	right: 10px;
+	bottom: 20px;
+}
+
+circle.choropleth-map-bubble {
+	z-index: 5;
+}
+
+#openedeyes-map-tooltip {
+  position: absolute;
+  z-index: 3;
+	padding: 3px;
+  background: #333;
+	border: 1px solid #eee;
+	color: #fff;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}

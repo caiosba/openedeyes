@@ -1,0 +1,308 @@
+#parallel-coordinates-canvas {
+	position: absolute;
+	z-index: 98;
+  background: transparent url(../images/loading-bar.gif) center center no-repeat;
+}
+
+/* Mask */
+#parallel-coordinates-mask {
+  position: absolute;
+  z-index: 100;
+  background-color: #fff;
+  opacity: 0.6;
+}
+
+/* The diagram will be plotted in this div */
+#parallel-coordinates-diagram {
+	position: absolute;
+	border-left: 2px solid #000;
+	border-bottom: 2px solid #000;
+	padding: 0;
+	background: transparent;
+	z-index: 99;
+}
+
+/* Each column inside the diagram */
+.parallel-coordinates-col {
+	position: absolute;
+	top: 20px;
+	border-left: 2px solid #333;
+	font-family: sans-serif;
+	font-size: 11px;
+	padding: 5px;
+	padding-top: 0;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+/* Each option inside columns in the diagram */
+.parallel-coordinates-col .parallel-coordinates-option {
+	position: absolute;
+	height: 30px;
+}
+
+/* The title of the column */
+.parallel-coordinates-col h2 {
+	font-size: 11px;
+	margin-top: 0;
+	margin-left: 0;
+	color: #333;
+}
+
+/* The checkbox of each option */
+.parallel-coordinates-col .parallel-coordinates-option .parallel-coordinates-form {
+	display: inline;
+}
+
+/* The numeric value of a selected option */
+.parallel-coordinates-col .parallel-coordinates-option .parallel-coordinates-value {
+	position: absolute;
+	top: 18px;
+	left: 22px;
+}
+
+.parallel-coordinates-value span {
+  /*
+  background-color: #f0e4ca;
+  padding: 2px;
+  */
+}
+
+/* The 'total' value of the diagram */
+#parallel-coordinates-diagram > h2 {
+	font-size: 11px;
+	margin-left: 2px;
+	font-family: sans-serif;
+}
+
+/* The 'total' label of the diagram */
+#parallel-coordinates-diagram #parallel-coordinates-total {
+	position: absolute;
+	display: block;
+	margin-left: 2px;
+	font-family: sans-serif;
+}
+
+/* The 'value' label of a selected option */
+#parallel-coordinates-diagram #parallel-coordinates-total, 
+.parallel-coordinates-col .parallel-coordinates-option .parallel-coordinates-value {
+	font-size: 12px;
+	color: #000;
+	font-weight: bold;
+}
+
+/* Each option */
+#parallel-coordinates-diagram .parallel-coordinates-col label:hover {
+  cursor: pointer;
+	color: #000;
+}
+
+/* The label of the selected option */
+.parallel-coordinates-selected {
+  font-weight: bold;
+}
+
+/* The list of columns */
+#parallel-coordinates-options-list {
+	display: block;
+	padding: 0;
+  margin: 0;
+	background-color: #eee;
+}
+
+/* List of columns - each item */
+#parallel-coordinates-options-list li {
+	display: block;
+	margin: 2px;
+	border: 1px solid #999;
+  background-color: #ccc;
+  padding: 2px;
+	cursor: move;
+}
+
+#parallel-coordinates-options-list li:hover {
+    background-color: #bbb;
+}
+
+/* Controller box */
+#parallel-coordinates-actions {
+	position: absolute;
+	font-size: 11px;
+	font-family: sans-serif;
+	top: 50px;
+	left: 127px;
+  background-color: #eee;
+  border: 1px solid #333;
+  padding: 3px;
+  z-index: 100;
+	width: 120px;
+	overflow: hidden;
+}
+
+/* Controller box header */
+#parallel-coordinates-actions-header {
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+/* Controller box title */
+#parallel-coordinates-controller-title {
+  display: block;
+  float: left;
+  margin-top: 3px;
+}
+
+/* Hide controller box */
+#parallel-coordinates-hide-control {
+  cursor: pointer;
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+
+#parallel-coordinates-hide-control[rel=hide] {
+  background-image: url('../images/icon-hide.png');
+}
+
+#parallel-coordinates-hide-control[rel=show] {
+  background-image: url('../images/icon-show.png');
+}
+
+#parallel-coordinates-hide-control:hover,
+#parallel-coordinates-move-control:hover {
+  opacity: 1;
+}
+
+/* Move controller box */
+#parallel-coordinates-move-control {
+    background-image: url('../images/icon-move.png');
+    cursor: move;
+    opacity: 0.4;
+}
+
+/* Default Options */
+#parallel-coordinates-default-options {
+    clear: both;
+    border-top: 1px dotted #bbb;
+}
+
+#parallel-coordinates-default-options input {
+    float: left;
+}
+
+.parallel-coordinates-default-option {
+    display: block;
+    text-indent: -5000em;
+    width: 18px;
+    height: 18px;
+    background: transparent center center no-repeat;
+    float: left;
+}
+
+/* Show or hide values */
+#parallel-coordinates-show-values-label {
+    background-image: url('../images/icon-numbers.png');
+}
+
+/* Auto refresh */
+#parallel-coordinates-auto-refresh-label {
+    background-image: url('../images/icon-refresh.png');
+}
+
+/* Auto refresh */
+#parallel-coordinates-lock-label {
+    background-image: url('../images/icon-lock.png');
+}
+
+/* Refresh link */
+#parallel-coordinates-link-update {
+    color: #333;
+    text-align: right;
+    margin: 0;
+    display: block;
+    font-size: 10px;
+}
+
+#parallel-coordinates-link-update:hover {
+    text-decoration: none;
+}
+
+/* Fields header in the controller box */
+#parallel-coordinates-fields-header {
+    display: block;
+    clear: both;
+    font-weight: bold;
+    margin: 5px 0;
+    padding-top: 2px;
+    border-top: 1px dotted #bbb;
+}
+
+/* Slider */
+#parallel-coordinates-slider {
+    height: 8px;
+    background-color: #ccc;
+    padding: 0;
+    width: 94px;
+    margin-top: 3px;
+    float: left;
+}
+
+#parallel-coordinates-slider-handle {
+    height: 8px;
+    background-color: #333;
+    width: 16px;
+    margin: 0;
+    cursor: move;
+}
+
+#parallel-coordinates-slider-handle:hover {
+    background-color: #666;
+}
+
+#parallel-coordinates-transparency {
+    display: block;
+    float: left;
+    margin-left: 5px;
+}
+
+/* Line buttons */
+#parallel-coordinates-lines-list {
+  display: block;
+	float: left;
+	padding: 0;
+	padding-left: 3px;
+	margin: 0;
+	margin-bottom: 3px;
+}
+
+#parallel-coordinates-lines-list li {
+  display: block;
+	float: left;
+	border: 1px solid #333;
+	padding: 1px;
+	margin-right: 3px;
+	width: 10px;
+	height: 10px;
+	cursor: pointer;
+  opacity: 0.3;
+}
+
+#parallel-coordinates-lines-list li:hover {
+	border-color: #000;
+}
+
+#parallel-coordinates-add-line {
+	border: 0 !important;
+  text-indent: -5000em;
+	background: transparent url(../images/icon-add.png) center center no-repeat;
+}
+
+#parallel-coordinates-remove-line {
+	border: 0 !important;
+  text-indent: -5000em;
+	background: transparent url(../images/icon-remove.png) center center no-repeat;
+}
+
+#parallel-coordinates-lines-list li.parallel-coordinates-active {
+  opacity: 1;
+}

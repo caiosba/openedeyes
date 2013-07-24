@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>OpenedEyes Demonstration | Choropleth Map</title>
+	<script type="text/javascript" src="../../openedeyes/js/openedeyes.js" id="openedeyes"></script>
+  <link rel="stylesheet" type="text/css" href="demo.css" />
+</head>
+
+<body>
+  <h2>Choropleth Map</h2>
+  <div id="content">
+  </div>
+  <script type="text/javascript">
+	var chart;
+
+	var queryString = window.location.search.replace(/^\?/,'').split('&');
+  var queryParams = {};
+  for (var i=0; i < queryString.length; i++) {
+    var pair = queryString[i].split('=');
+    queryParams[pair[0]] = pair[1];
+	}
+
+	window.onload = function() {
+	  chart = new choroplethMap({
+	    'container' : 'content',
+	  	'size' : [400,400],
+	  	'position' : [130,50],
+  		'background' : ['#b9a680','#f0e4ca'],
+			'colors' : ['#FFEFD7','#FFE2B6','#FFC56E','#FFAA29','#C17500','#995D00'],
+      'strokeWidth' : 2,
+	  	'strokeColor' : '#666',
+      'defaultRegionColor' : '#eeeeee',
+			'strokeHoverColor' : '#000',
+			'lang' : queryParams.lang || 'en',
+			'map' : 'brazil',
+	  	'requestPath' : '../../openedeyes/datasets/anatel.json',
+		  'initialState' : { 'regions' : 'Número de Linhas Móveis', 'bubbles' : 'Número de Linhas Móveis' },
+			'range' : 'linear',
+			'showLegend' : true,
+			'useDefaultInterface' : true,
+		  'showLabels' : true
+    });
+	}
+	</script>
+</body>
+</html>

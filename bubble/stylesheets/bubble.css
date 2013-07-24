@@ -1,0 +1,93 @@
+.bubble-remove {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  z-index: 3;
+}
+
+#bubble-grid {
+  position: absolute;
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  background: transparent;
+}
+
+.bubble-axis-value {
+  position: absolute;
+  font-size: 10px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  line-height: auto;
+  white-space: nowrap;
+}
+
+.bubble-axis-y {
+  text-align: right;
+  padding-right: 5px;
+}
+
+svg {
+  z-index: 2;
+}
+
+#bubble-balloon {
+  position: absolute;
+  z-index: 4;
+  width: 150px;
+}
+
+circle:hover {
+  cursor: pointer;
+}
+
+#bubble-balloon ul {
+  display: table;
+  background: transparent url(../images/balloon-middle.png) center center repeat-y;
+  padding-left: 5px;
+  width: 100%;
+  margin: 0;
+}
+
+#bubble-balloon li {
+  display: table-row;
+}
+
+#bubble-balloon li span {
+  display: table-cell;
+  text-align: right;
+  padding: 2px;
+  overflow: hidden;
+  color: #666;
+}
+
+#bubble-balloon li span + span {
+  text-align: left;
+  color: #000;
+}
+
+#bubble-balloon h3 {
+  display: block;
+  width: 140px;
+	height: 12px;
+	margin: 0;
+	overflow: hidden;
+  padding: 5px 0 0 10px;
+  background: transparent url(../images/balloon-header.png) top center no-repeat;
+  font-size: 11px;
+  color: #333;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+#bubble-balloon small {
+  display: block;
+  background: transparent url(../images/balloon-footer.png) bottom center no-repeat;
+  width: 150px;
+	height: 29px;
+	margin: 0;
+	overflow: hidden;
+  padding: 0;
+	text-align: center;
+  color: #ccc;
+}

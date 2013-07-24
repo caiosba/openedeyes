@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>OpenedEyes Demonstration | Bubble SVG Chart</title>
+	<script type="text/javascript" src="../../openedeyes/js/openedeyes.js" id="openedeyes"></script>
+  <link rel="stylesheet" type="text/css" href="demo.css" />
+</head>
+
+<body>
+  <h2>Bubble SVG Chart</h2>
+  <p>Set default bubble size: <input type="text" value="5" id="custom-bubble-size" /><a href="#" onclick="var v = $('custom-bubble-size').value; chart.updateConfig({ defaultBubbleSize : v }); chart.updateVis(); return false">Update</a></p>
+  <div id="content">
+  </div>
+  <script type="text/javascript">
+	var chart;
+
+	var queryString = window.location.search.replace(/^\?/,'').split('&');
+  var queryParams = {};
+  for (var i=0; i < queryString.length; i++) {
+    var pair = queryString[i].split('=');
+    queryParams[pair[0]] = pair[1];
+	}
+
+	window.onload = function() {
+	  chart = new bubbleSVGChart({
+	    'container' : 'content',
+	  	'size' : [400,400],
+	  	'position' : [120,20],
+	  	'strokeWidth' : 0,
+	  	'lang' : queryParams.lang || 'en',
+	  	'requestPath' : '../../openedeyes/datasets/f1.json',
+			'useDefaultInterface' : true,
+			'defaultBubbleSize' : 20,
+			'initialState' : { 'x' : 'victories', 'y': 'runs', 'size' : 'poles', 'color' : 'country' },
+  		'background' : ['#b9a680','#f0e4ca']
+    });
+	}
+	</script>
+</body>
+</html>
