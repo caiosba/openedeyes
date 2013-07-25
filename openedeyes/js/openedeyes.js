@@ -1,4 +1,4 @@
-var openedEyesRootPath = document.getElementById('openedeyes').src.replace('openedeyes.js','');
+var openedEyesRootPath = document.getElementById('openedeyes').src.replace(/openedeyes\.js.*/,'');
 document.write('<script type="text/javascript" src="' + openedEyesRootPath + 'prototype.js"><\/script>\n');
 document.write('<script type="text/javascript" src="' + openedEyesRootPath + 'main.js"><\/script>\n');
 var openedEyesVisualizers = ['bubble','parallel_coordinates','map','graph','pie_graph'];
