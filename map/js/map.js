@@ -46,7 +46,7 @@ var Map = Class.create(OpenedEyes, {
 		    	'id' : 'openedeyes-map',
 		    	'width' : w,
 		    	'height' : h,
-		    	'src' : '../images/' + this.config.map + '.svg'
+		    	'src' : openedEyesRootPath +'/../../../map/images/' + this.config.map + '.svg'
 		    });
 				break;
 			case 'embed':
@@ -54,8 +54,8 @@ var Map = Class.create(OpenedEyes, {
 		    	'id' : 'openedeyes-map',
 		    	'width' : w,
 		    	'height' : h,
-		    	'src' : '../images/' + this.config.map + '.svg',
-					'type' : 'image/svg+xml' 
+		    	'src' : openedEyesRootPath +'/../../../map/images/' + this.config.map + '.svg'
+			'type' : 'image/svg+xml' 
 		    });
 				break;
 			case 'object':
@@ -63,7 +63,7 @@ var Map = Class.create(OpenedEyes, {
 		    	'id' : 'openedeyes-map',
 		    	'width' : w,
 		    	'height' : h,
-		    	'data' : '../images/' + this.config.map + '.svg',
+		    	'data' : openedEyesRootPath +'/../../../map/images/' + this.config.map + '.svg'
 					'type' : 'image/svg+xml' 
 		    });
 				break;
