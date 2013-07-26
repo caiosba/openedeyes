@@ -54,7 +54,7 @@ var Map = Class.create(OpenedEyes, {
 		    	'id' : 'openedeyes-map',
 		    	'width' : w,
 		    	'height' : h,
-		    	'src' : openedEyesRootPath +'/../../../map/images/' + this.config.map + '.svg'
+		    	'src' : openedEyesRootPath +'/../../../map/images/' + this.config.map + '.svg',
 			'type' : 'image/svg+xml' 
 		    });
 				break;
@@ -63,8 +63,8 @@ var Map = Class.create(OpenedEyes, {
 		    	'id' : 'openedeyes-map',
 		    	'width' : w,
 		    	'height' : h,
-		    	'data' : openedEyesRootPath +'/../../../map/images/' + this.config.map + '.svg'
-					'type' : 'image/svg+xml' 
+		    	'data' : openedEyesRootPath +'/../../../map/images/' + this.config.map + '.svg',
+			'type' : 'image/svg+xml' 
 		    });
 				break;
 			default:
