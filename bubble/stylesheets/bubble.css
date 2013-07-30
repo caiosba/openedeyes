@@ -44,8 +44,8 @@ circle:hover {
 #bubble-balloon ul {
   display: table;
   background: transparent url(../images/balloon-middle.png) center center repeat-y;
-  padding-left: 5px;
-  width: 100%;
+  padding: 0px;
+  width: 150px;
   margin: 0;
 }
 
