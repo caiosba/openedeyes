@@ -1,0 +1,63 @@
+#!/bin/bash
+# Shell script to convert a CSV file to OPENEDEYES format
+# Usage: sh csv2oe input.csv output.json
+
+input=$1
+output=$2
+
+echo -n '{"header":[' > $output
+
+header=$(head -1 "$input")
+declare -a fields
+OLDIFS=$IFS
+IFS=','
+i=0
+for x in $header
+do
+	fields[i]=$x
+  if [[ $i > 1 ]]
+	then
+		echo -n ',' >> $output
+	fi
+	if [[ $i > 0 ]]
+	then
+		echo -n "\"$x\"" >> $output
+	fi
+  i=$((i+1))
+done
+IFS=$OLDIFS
+echo -n '],"values":{' >> $output
+
+n=0
+size=$(wc -l "$input" | sed 's/ .*//')
+content_size=$((size-1))
+tail -n $content_size "$input" | while read line
+do
+  if [[ $n > 0 ]]
+  then
+  	echo -n ',' >> $output
+  fi
+  OLDIFS=$IFS
+  IFS=','
+  i=0
+  for x in $line
+  do
+    if [[ $i == 0 ]]
+  	then
+  		echo -n "\"$x\":{" >> $output
+  	fi
+    if [[ $i > 1 ]]
+  	then
+  		echo -n ',' >> $output
+  	fi
+  	if [[ $i > 0 ]]
+  	then
+  		echo -n "\"${fields[i]}\":$x" >> $output
+  	fi
+    i=$((i+1))
+  done
+  IFS=$OLDIFS
+	echo -n '}' >> $output
+	n=$((n+1))
+done
+echo '}}' >> $output
